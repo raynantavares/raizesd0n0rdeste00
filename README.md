@@ -44,7 +44,7 @@ API REST da rede de lanchonetes **Raízes do Nordeste**, com foco no **Fluxo A**
 Use esta opção se você **não** tem PostgreSQL instalado na máquina. O Docker sobe **somente o banco**; a API continua rodando com `npm`.
 
 ```bash
-git clone https://github.com/rmvillela/raizes-nordeste.git
+git clone (https://github.com/raynantavares/raizesd0n0rdeste00.git)
 cd raizes-nordeste
 cp .env.example .env
 npm install
@@ -78,7 +78,7 @@ Se usar o usuário padrão `postgres` do seu SO, altere usuário e senha na URL.
 3. Suba a API (sem nenhum comando Docker):
 
 ```bash
-git clone https://github.com/rmvillela/raizes-nordeste.git
+git clone (https://github.com/raynantavares/raizesd0n0rdeste00.git)
 cd raizes-nordeste
 cp .env.example .env    # depois edite DATABASE_URL se necessário
 npm install
@@ -189,7 +189,3 @@ src/
 Auth JWT com papéis, catálogo de unidades e produtos, pedidos com `canalPedido`, pagamento mock (aprovado, recusado e falha), atualização de status, erro JSON padronizado, registro de auditoria nas ações do fluxo, Swagger, coleção Postman e diagramas em `docs/diagramas/`.
 
 
-
-## Licença
-
-Uso acadêmico — Uninter 2026.
