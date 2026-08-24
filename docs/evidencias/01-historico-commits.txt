@@ -1,0 +1,54 @@
+=== Histórico de commits (raizes-nordeste) ===
+Repositório: https://github.com/rmvillela/raizes-nordeste
+Autor: Roosevelt Villela <rmvillela@outlook.com>
+RU: 4645211
+Gerado em: 22/08/2026 17:50:24 -0300
+
+commit fe3fad2f64e2f0798dd3c6856914afcf34f5f24e
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:37:19
+
+    docs: inclui figuras de classes e sequência no relatório
+
+commit 1fff2e1fbac5807febfb3310338ccf05f1917b05
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:29
+
+    docs: adiciona o relatório acadêmico do projeto
+
+commit 73d3ca001a709e42429f66c90ae35b58b9d02528
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:29
+
+    docs: adiciona diagramas de casos de uso, DER, classes e camadas
+
+commit 7c68b77255c2b721faded068ea0d0bff9ac56f7c
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:29
+
+    test: adiciona coleção Postman do fluxo principal
+
+commit 1b61dbb257624e1929b4fa46196d63fc29519a60
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:29
+
+    docs: descreve execução local no README
+
+commit 2758f46d56eebbdceb18ee59623ea1de76271068
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:29
+
+    feat(api): implementa autenticação JWT, pedidos e pagamento mock
+
+commit d7ee3ffe461af25b70a86c1caae7e354ee71d679
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:29
+
+    feat(db): adiciona schema Prisma, migration e seed
+
+commit e9b082477ba1454b1b7346ad8b2ce93b9493fbf1
+Author: Roosevelt Villela <rmvillela@outlook.com>
+Date:   16/08/2026 16:30:28
+
+    chore: inicializa o projeto NestJS e o ambiente local
+

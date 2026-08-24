@@ -1,0 +1,124 @@
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman
+
+Raizes do Nordeste — Fluxo A
+
+❏ Auth
+↳ T01 Login válido (CLIENTE)
+  POST http://localhost:3000/auth/login [201 Created, 725B, 128ms]
+  ✓  T01 status 201
+  ✓  T01 retorna accessToken
+
+↳ T01b Login COZINHA
+  POST http://localhost:3000/auth/login [201 Created, 735B, 73ms]
+  ✓  T01b status 201
+
+↳ T01c Login ATENDENTE
+  POST http://localhost:3000/auth/login [201 Created, 738B, 72ms]
+  ✓  T01c status 201
+
+❏ Catalogo
+↳ T02 Listar unidades
+  GET http://localhost:3000/unidades [200 OK, 474B, 11ms]
+  ✓  T02 status 200
+  ✓  T02 retorna ao menos uma unidade
+
+↳ T03 Listar produtos por unidade
+  GET http://localhost:3000/produtos?unidadeId=19d32c5d-81f9-4f09-ac8c-c3d6156794df [200 OK, 869B, 9ms]
+  ✓  T03 status 200
+  ✓  T03 retorna produto
+
+❏ Pedidos
+↳ T04 Criar pedido com canalPedido TOTEM
+  POST http://localhost:3000/pedidos [201 Created, 741B, 26ms]
+  ✓  T04 status 201
+  ✓  T04 status AGUARDANDO_PAGAMENTO e canal TOTEM
+
+↳ T05 Listar pedidos por canalPedido=TOTEM
+  GET http://localhost:3000/pedidos?canalPedido=TOTEM [200 OK, 801B, 13ms]
+  ✓  T05 status 200
+  ✓  T05 lista paginada
+
+❏ Pagamentos
+↳ T06 Pagamento mock aprovado
+  POST http://localhost:3000/pedidos/d26c3ba1-0df5-4720-bf92-891dd8216880/pagamentos [201 Created, 696B, 13ms]
+  ✓  T06 status 201
+  ✓  T06 pedido PAGO
+
+↳ T14 Pedido para pagamento recusado
+  POST http://localhost:3000/pedidos [201 Created, 743B, 13ms]
+  ✓  T14a pedido criado
+
+↳ T14 Pagamento mock recusado
+  POST http://localhost:3000/pedidos/4e4b4db3-aba9-4155-a92d-69448453bbc6/pagamentos [201 Created, 709B, 14ms]
+  ✓  T14 status 201
+  ✓  T14 pedido PAGAMENTO_NEGADO
+
+❏ Status
+↳ T07 Cozinha atualiza para EM_PREPARO
+  PATCH http://localhost:3000/pedidos/d26c3ba1-0df5-4720-bf92-891dd8216880/status [200 OK, 726B, 10ms]
+  ✓  T07 status 200
+  ✓  T07 EM_PREPARO
+
+↳ T07b Cozinha atualiza para PRONTO
+  PATCH http://localhost:3000/pedidos/d26c3ba1-0df5-4720-bf92-891dd8216880/status [200 OK, 722B, 10ms]
+  ✓  T07b status 200
+  ✓  T07b PRONTO
+
+↳ T08 Atendente atualiza para ENTREGUE
+  PATCH http://localhost:3000/pedidos/d26c3ba1-0df5-4720-bf92-891dd8216880/status [200 OK, 724B, 11ms]
+  ✓  T08 status 200
+  ✓  T08 ENTREGUE
+
+❏ Erros
+↳ T09 Listar pedidos sem token
+  GET http://localhost:3000/pedidos [401 Unauthorized, 485B, 2ms]
+  ✓  T09 status 401
+  ✓  T09 erro padronizado
+
+↳ T10 Cliente tenta atualizar status (403)
+  PATCH http://localhost:3000/pedidos/d26c3ba1-0df5-4720-bf92-891dd8216880/status [403 Forbidden, 556B, 5ms]
+  ✓  T10 status 403
+  ✓  T10 SEM_PERMISSAO
+
+↳ T11 Criar pedido sem canalPedido
+  POST http://localhost:3000/pedidos [400 Bad Request, 607B, 5ms]
+  ✓  T11 status 400
+  ✓  T11 details com canalPedido
+
+↳ T12 Pedido com produto inexistente
+  POST http://localhost:3000/pedidos [404 Not Found, 590B, 6ms]
+  ✓  T12 status 404
+  ✓  T12 PRODUTO_NAO_ENCONTRADO
+
+↳ T13 Pedido para transicao invalida
+  POST http://localhost:3000/pedidos [201 Created, 746B, 13ms]
+  ✓  T13a pedido criado
+
+↳ T13 Transicao de status invalida (409)
+  PATCH http://localhost:3000/pedidos/f6eddd28-f6d8-42dd-bc79-3616abdf5bc5/status [409 Conflict, 644B, 6ms]
+  ✓  T13 status 409
+  ✓  T13 TRANSICAO_INVALIDA
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                19 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                19 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 0 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                34 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 653ms                                      │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 7.46kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 23ms [min: 2ms, max: 128ms, s.d.: 31ms] │
+└────────────────────────────────────────────────────────────────┘

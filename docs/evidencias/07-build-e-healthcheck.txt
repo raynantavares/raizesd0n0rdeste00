@@ -1,0 +1,9 @@
+=== Build do projeto ===
+
+> raizes-nordeste@0.0.1 build
+> nest build
+
+
+=== Health check API ===
+GET /api -> HTTP 200
+GET /unidades sem token -> HTTP 401

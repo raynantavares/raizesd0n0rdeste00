@@ -1,0 +1,12 @@
+           acao           | entidade  |        createdAt        
+--------------------------+-----------+-------------------------
+ PEDIDO_CRIADO            | Pedido    | 2026-08-22 20:51:14.253
+ PEDIDO_STATUS_ATUALIZADO | Pedido    | 2026-08-22 20:51:14.171
+ PEDIDO_STATUS_ATUALIZADO | Pedido    | 2026-08-22 20:51:14.15
+ PEDIDO_STATUS_ATUALIZADO | Pedido    | 2026-08-22 20:51:14.129
+ PAGAMENTO_MOCK           | Pagamento | 2026-08-22 20:51:14.108
+ PEDIDO_CRIADO            | Pedido    | 2026-08-22 20:51:14.085
+ PAGAMENTO_MOCK           | Pagamento | 2026-08-22 20:51:14.062
+ PEDIDO_CRIADO            | Pedido    | 2026-08-22 20:51:14.012
+(8 rows)
+
