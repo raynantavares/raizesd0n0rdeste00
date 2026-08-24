@@ -1,7 +1,7 @@
 # Raízes do Nordeste — API Back-end
 
 Projeto Multidisciplinar (Uninter) — **trilha Back-end**  
-**RU:** 4645211
+**RU:** 4825877
 
 API REST da rede de lanchonetes **Raízes do Nordeste**, com foco no **Fluxo A**: criar pedido → pagamento mock → atualização de status. Multicanalidade via campo obrigatório `canalPedido`.
 
@@ -188,7 +188,7 @@ src/
 
 Auth JWT com papéis, catálogo de unidades e produtos, pedidos com `canalPedido`, pagamento mock (aprovado, recusado e falha), atualização de status, erro JSON padronizado, registro de auditoria nas ações do fluxo, Swagger, coleção Postman e diagramas em `docs/diagramas/`.
 
-Relatório acadêmico: `4645211_Projeto_Back_End.pdf`.
+
 
 ## Licença
 
