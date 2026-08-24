@@ -1,26 +1,26 @@
 # Raízes do Nordeste — API Back-end
 
-Projeto Multidisciplinar (Uninter) — **trilha Back-end**  
+Projeto Multidisciplinar (Uninter) — **trilha Back-end**
 **RU:** 4825877
 
 API REST da rede de lanchonetes **Raízes do Nordeste**, com foco no **Fluxo A**: criar pedido → pagamento mock → atualização de status. Multicanalidade via campo obrigatório `canalPedido`.
 
 ## Stack
 
-- Node.js 20+
-- NestJS
-- PostgreSQL 16 (banco relacional — ver opções de instalação abaixo)
-- Prisma 5 (ORM + migrations + seed)
-- JWT + roles
-- Swagger/OpenAPI em `/api`
+* Node.js 20+
+* NestJS
+* PostgreSQL 16 (banco relacional — ver opções de instalação abaixo)
+* Prisma 5 (ORM + migrations + seed)
+* JWT + roles
+* Swagger/OpenAPI em `/api`
 
 ## O que precisa de Docker?
 
-| Componente | Precisa de Docker? | Como roda |
-|---|---|---|
-| **API (NestJS)** | **Não** | `npm install` + `npm run start:dev` |
-| **Banco PostgreSQL** | **Não** (mas precisa existir) | Docker **ou** PostgreSQL instalado na máquina |
-| **Testes Postman / Newman** | **Não** | Coleção contra `http://localhost:3000` |
+| Componente                  | Precisa de Docker?            | Como roda                                     |
+| --------------------------- | ----------------------------- | --------------------------------------------- |
+| **API (NestJS)**            | **Não**                       | `npm install` + `npm run start:dev`           |
+| **Banco PostgreSQL**        | **Não** (mas precisa existir) | Docker **ou** PostgreSQL instalado na máquina |
+| **Testes Postman / Newman** | **Não**                       | Coleção contra `http://localhost:3000`        |
 
 **Resumo:** Docker **não é obrigatório**. Ele só facilita subir o PostgreSQL sem instalar nada além do Node. Se o corretor já tiver PostgreSQL (local, servidor da faculdade, etc.), basta apontar o `DATABASE_URL` no `.env` e seguir com `migrate` + `seed`.
 
@@ -28,20 +28,20 @@ API REST da rede de lanchonetes **Raízes do Nordeste**, com foco no **Fluxo A**
 
 **Obrigatórios (sempre):**
 
-- Node.js 20 ou superior
-- npm
-- Git
-- **PostgreSQL 14+** acessível (via Docker **ou** instalação nativa)
+* Node.js 20 ou superior
+* npm
+* Git
+* **PostgreSQL 14+** acessível (via Docker **ou** instalação nativa)
 
 **Opcionais:**
 
-- Docker Desktop / Docker Engine + Compose — recomendado para quem não tem PostgreSQL instalado
+* Docker Desktop / Docker Engine + Compose — recomendado para quem não tem PostgreSQL instalado
 
 ## Subir o ambiente (professor / corretor)
 
 ### Opção A — com Docker (caminho mais simples)
 
-Use esta opção se você **não** tem PostgreSQL instalado na máquina. O Docker sobe **somente o banco**; a API continua rodando com `npm`.
+Use esta opção se você **não tem PostgreSQL instalado na máquina**. O Docker sobe **somente o banco**; a API continua rodando com `npm`.
 
 ```bash
 git clone (https://github.com/raynantavares/raizesd0n0rdeste00.git)
@@ -89,17 +89,17 @@ npm run start:dev
 
 ### Verificar se está funcionando
 
-| URL / comando | Resultado esperado |
-|---|---|
-| http://localhost:3000/api | Swagger abre (HTTP 200) |
-| `GET /unidades` sem token | HTTP 401 |
+| URL / comando                                               | Resultado esperado       |
+| ----------------------------------------------------------- | ------------------------ |
+| http://localhost:3000/api                                   | Swagger abre (HTTP 200)  |
+| `GET /unidades` sem token                                   | HTTP 401                 |
 | `POST /auth/login` com `cliente@raizes.local` / `Senha@123` | HTTP 201 + `accessToken` |
 
-- API: http://localhost:3000
-- Swagger: http://localhost:3000/api
-- Coleção Postman: `postman/Raizes-Nordeste-Fluxo-A.postman_collection.json`
-- Ambiente Postman: `postman/Raizes-Nordeste-local.postman_environment.json`
-- Evidências de testes: `docs/evidencias/`
+* API: http://localhost:3000
+* Swagger: http://localhost:3000/api
+* Coleção Postman: `postman/Raizes-Nordeste-Fluxo-A.postman_collection.json`
+* Ambiente Postman: `postman/Raizes-Nordeste-local.postman_environment.json`
+* Evidências de testes: `docs/evidencias/`
 
 ### Ordem sugerida na coleção Postman
 
@@ -116,12 +116,12 @@ Copie `.env.example` → `.env`.
 
 **Sem Docker (opção B):** altere `DATABASE_URL` para o host, usuário e senha do seu PostgreSQL.
 
-| Variável | Exemplo |
-|---|---|
-| `DATABASE_URL` | `postgresql://raizes:raizes@localhost:5432/raizes_nordeste?schema=public` |
-| `JWT_SECRET` | string qualquer para desenvolvimento |
-| `JWT_EXPIRES_IN` | `1d` |
-| `PORT` | `3000` |
+| Variável         | Exemplo                                                                   |
+| ---------------- | ------------------------------------------------------------------------- |
+| `DATABASE_URL`   | `postgresql://raizes:raizes@localhost:5432/raizes_nordeste?schema=public` |
+| `JWT_SECRET`     | string qualquer para desenvolvimento                                      |
+| `JWT_EXPIRES_IN` | `1d`                                                                      |
+| `PORT`           | `3000`                                                                    |
 
 **Não versionar** o arquivo `.env`.
 
@@ -129,13 +129,13 @@ Copie `.env.example` → `.env`.
 
 Senha de todos: `Senha@123`
 
-| E-mail | Role |
-|---|---|
-| admin@raizes.local | ADMIN |
-| gerente@raizes.local | GERENTE |
-| atendente@raizes.local | ATENDENTE |
-| cozinha@raizes.local | COZINHA |
-| cliente@raizes.local | CLIENTE |
+| E-mail                                                  | Role      |
+| ------------------------------------------------------- | --------- |
+| [admin@raizes.local](mailto:admin@raizes.local)         | ADMIN     |
+| [gerente@raizes.local](mailto:gerente@raizes.local)     | GERENTE   |
+| [atendente@raizes.local](mailto:atendente@raizes.local) | ATENDENTE |
+| [cozinha@raizes.local](mailto:cozinha@raizes.local)     | COZINHA   |
+| [cliente@raizes.local](mailto:cliente@raizes.local)     | CLIENTE   |
 
 O seed também cria 1 unidade (Recife Centro) e 2 produtos.
 
@@ -153,39 +153,36 @@ Filtro multicanal: `GET /pedidos?canalPedido=TOTEM`
 ## Estrutura (camadas)
 
 ```
-src/
-  domain/           # regras de domínio (ex.: transições de status)
-  application/      # casos de uso / serviços de aplicação
-  infrastructure/   # Prisma, JWT strategy, auditoria
-  api/              # controllers + DTOs (Swagger)
-  common/           # filters, guards, decorators
-  modules/          # módulos Nest
+src/ 
+  domain/           # regras de domínio (ex.: transições de status) 
+  application/      # casos de uso / serviços de aplicação 
+  infrastructure/   # Prisma, JWT strategy, auditoria 
+  api/              # controllers + DTOs (Swagger) 
+  common/           # filters, guards, decorators 
+  modules/          # módulos Nest 
 ```
-
 
 ## Scripts úteis
 
-| Script | Ação |
-|---|---|
-| `npm run docker:up` | Sobe PostgreSQL no Docker (opção A) |
-| `npm run docker:down` | Para o container do PostgreSQL |
-| `npm run db:deploy` | Aplica migrations |
-| `npm run db:seed` | Dados demo |
-| `npm run start:dev` | API em watch |
-| `npm run build` | Compila |
-| `npm run lint` | ESLint |
+| Script                | Ação                                |
+| --------------------- | ----------------------------------- |
+| `npm run docker:up`   | Sobe PostgreSQL no Docker (opção A) |
+| `npm run docker:down` | Para o container do PostgreSQL      |
+| `npm run db:deploy`   | Aplica migrations                   |
+| `npm run db:seed`     | Dados demo                          |
+| `npm run start:dev`   | API em watch                        |
+| `npm run build`       | Compila                             |
+| `npm run lint`        | ESLint                              |
 
 ## Problemas comuns
 
-| Sintoma | Causa provável | Solução |
-|---|---|---|
-| `Can't reach database server` | PostgreSQL não está rodando | Opção A: `npm run docker:up`. Opção B: iniciar o serviço PostgreSQL do SO |
-| `port 5432 already in use` | Outro Postgres na máquina | Use o Postgres existente (opção B) ou pare o outro serviço |
-| `401` em todas as rotas | Token ausente ou seed não rodou | `npm run db:seed` e faça login em `/auth/login` |
-| Docker não instalado | — | Use a **opção B** com PostgreSQL nativo — não é impeditivo |
+| Sintoma                       | Causa provável                  | Solução                                                                   |
+| ----------------------------- | ------------------------------- | ------------------------------------------------------------------------- |
+| `Can't reach database server` | PostgreSQL não está rodando     | Opção A: `npm run docker:up`. Opção B: iniciar o serviço PostgreSQL do SO |
+| `port 5432 already in use`    | Outro Postgres na máquina       | Use o Postgres existente (opção B) ou pare o outro serviço                |
+| `401` em todas as rotas       | Token ausente ou seed não rodou | `npm run db:seed` e faça login em `/auth/login`                           |
+| Docker não instalado          | —                               | Use a **opção B** com PostgreSQL nativo — não é impeditivo                |
 
 ## Escopo entregue
 
 Auth JWT com papéis, catálogo de unidades e produtos, pedidos com `canalPedido`, pagamento mock (aprovado, recusado e falha), atualização de status, erro JSON padronizado, registro de auditoria nas ações do fluxo, Swagger, coleção Postman e diagramas em `docs/diagramas/`.
-
-
