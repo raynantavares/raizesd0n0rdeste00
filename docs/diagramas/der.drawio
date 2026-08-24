@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="der" name="DER">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" page="1" pageWidth="1600" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="u" value="Usuario&#xa;─────────&#xa;PK id&#xa;nome&#xa;email UK&#xa;senhaHash&#xa;role&#xa;ativo" style="shape=table;startSize=0;container=0;html=1;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="180" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="un" value="Unidade&#xa;─────────&#xa;PK id&#xa;nome&#xa;cidade&#xa;ativa" style="shape=table;html=1;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="pr" value="Produto&#xa;─────────&#xa;PK id&#xa;FK unidadeId&#xa;nome&#xa;preco&#xa;ativo" style="shape=table;html=1;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="960" y="40" width="180" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="pe" value="Pedido&#xa;─────────&#xa;PK id&#xa;FK clienteId&#xa;FK unidadeId&#xa;canalPedido&#xa;status&#xa;total" style="shape=table;html=1;align=left;whiteSpace=wrap;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="pi" value="PedidoItem&#xa;─────────&#xa;PK id&#xa;FK pedidoId&#xa;FK produtoId&#xa;quantidade&#xa;precoUnitario&#xa;subtotal" style="shape=table;html=1;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="680" y="280" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa" value="Pagamento&#xa;─────────&#xa;PK id&#xa;FK pedidoId&#xa;FK solicitadoPorId&#xa;formaPagamento&#xa;status&#xa;valor&#xa;payloadRetorno" style="shape=table;html=1;align=left;whiteSpace=wrap;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="220" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="au" value="AuditLog&#xa;─────────&#xa;PK id&#xa;FK usuarioId&#xa;acao&#xa;entidade&#xa;entidadeId&#xa;detalhes" style="shape=table;html=1;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="360" y="520" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="u" target="pe"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r2" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="un" target="pe"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r3" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="un" target="pr"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r4" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="pe" target="pi"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r5" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="pr" target="pi"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r6" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="pe" target="pa"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r7" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="u" target="pa"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r8" style="endArrow=ERmany;startArrow=ERone;html=1;" edge="1" parent="1" source="u" target="au"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

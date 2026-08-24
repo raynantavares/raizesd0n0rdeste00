@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="arch" name="Arquitetura">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" page="1" pageWidth="1200" pageHeight="800">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="l4" value="API / Interface&#xa;controllers, DTOs, guards JWT/roles, Swagger&#xa;src/api · src/common" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="720" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="Application&#xa;casos de uso: AuthService, PedidosService, PagamentosService&#xa;src/application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="200" y="160" width="720" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="Domain&#xa;regras de transição de StatusPedido, enums de canal e papel&#xa;src/domain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="720" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="Infrastructure&#xa;Prisma/PostgreSQL, JWT strategy, bcrypt, AuditLog&#xa;src/infrastructure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="200" y="400" width="720" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ext" value="PostgreSQL (Docker) &#xa;|&amp;nbsp; Gateway de pagamento MOCK" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="530" width="720" height="70" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

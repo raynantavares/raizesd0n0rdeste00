@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="seq" name="Sequencia Fluxo A">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" page="1" pageWidth="1400" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="p1" value="Cliente" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="API" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="20" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="PedidosService" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="20" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="PagamentosService" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="20" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="20" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="1. POST /pedidos (canalPedido)" style="endArrow=block;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="90" y="120" as="sourcePoint"/><mxPoint x="330" y="120" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="2. valida itens/unidade, persiste AGUARDANDO_PAGAMENTO" style="endArrow=block;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="330" y="180" as="sourcePoint"/><mxPoint x="1140" y="180" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="3. POST /pedidos/{id}/pagamentos" style="endArrow=block;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="90" y="260" as="sourcePoint"/><mxPoint x="860" y="260" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="4. mock aprovado/negado + registrar Pagamento" style="endArrow=block;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="860" y="330" as="sourcePoint"/><mxPoint x="1140" y="330" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="5. atualiza status PAGO ou PAGAMENTO_NEGADO" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1140" y="400" as="sourcePoint"/><mxPoint x="90" y="400" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="6. PATCH /pedidos/{id}/status (cozinha/atendente)" style="endArrow=block;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="90" y="480" as="sourcePoint"/><mxPoint x="590" y="480" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="7. transicao permitida ou 409 TRANSICAO_INVALIDA" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="590" y="560" as="sourcePoint"/><mxPoint x="90" y="560" as="targetPoint"/></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
